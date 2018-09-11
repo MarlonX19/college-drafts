@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
 #include<string.h>
 #include<ctype.h>
 
@@ -51,11 +51,11 @@ No* inserir(No *root, char *nome, int ra){
                 root->dir = NULL;
               }
 
-              if (somaChar(nome) < somaChar(root->nome)){
+               else if (somaChar(nome) < somaChar(root->nome)){
                 root->esq = inserir(root->esq, nome, ra);
               }
 
-              if (somaChar(nome) > somaChar(root->nome)){
+              else if (somaChar(nome) > somaChar(root->nome)){
                 root->dir = inserir(root->dir, nome, ra);
               }
 
