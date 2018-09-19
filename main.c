@@ -12,7 +12,8 @@ typedef struct _no {
 
 
 char* toLowerString(char *nome){
-    for(int i = 0; i<strlen(nome); i++){
+	int i;
+    for( i = 0; i < strlen(nome); i++){
      nome[i] = tolower(nome[i]);
     }
     return nome;
@@ -21,8 +22,8 @@ char* toLowerString(char *nome){
 int somaChar(char *palavra){
    int t = strlen(palavra);
    int count = 0;
-
-   for(int i=0; i<(t); i++) {
+	int i;
+   for(i = 0; i < (t); i++) {
     count += palavra[i];
    }
 
@@ -115,16 +116,54 @@ void encontrarNome(No *root, char *nome){
 
 }
 
+/* COMPARA TOTAL DE VALORES DE DUAS ARVORES*/
+int compara(No *A, No *B){
+	printf("COMPARANDO... \n");
+	int somaA = somaARV(A);
+	printf("---------------------- \n");
+	int somaB = somaARV(B);
+	printf("---------------------- \n");
+	
+	printf("arv A = %d \n", somaA);
+	printf("arv b = %d \n", somaB);
+	
+	if(somaA == somaB) return 0;
+	 return 1;
+}
+
+
+/*SOMA VALORES DA ARVORE*/
+int somaARV(No *arv){
+	int s = 0;
+	
+	if(arv != NULL){
+		s+= somaARV(arv->esq);
+		s+= arv->ra;
+		printf("valor = %d \n", arv->ra );
+		s+= somaARV(arv->dir);
+	}
+	
+	return s;
+}
+
 int main()
 {   No *no;
      char nome[20];
      int op = 0;
      int ra =0;
+     
+     No *no2;
+     int comp;
 
      no = inicializar(no);
-     no = inserir(no, "marlon", 99856);
-     no = inserir(no, "mar", 88565);
-     no = inserir(no, "rob", 11580);
+     no = inserir(no, "marlon", 6);
+     no = inserir(no, "mar", 7);
+     no = inserir(no, "rob", 5);
+     
+     no2 = inicializar(no2);
+     no2 = inserir(no2, "marlon", 9);
+     no2 = inserir(no2, "mar", 8);
+     no2 = inserir(no2, "rob", 1);
 
    while(op > -1 && op < 7) {
            printf("\nSelecione a opcao que deseja!\n");
@@ -135,6 +174,7 @@ int main()
             printf("<4> Mostrar em ordem\n");
             printf("<5> Encontrar aluno na arvore\n");
             printf("<6> Sair\n");
+            printf("<7> COMPARA (valores de duas arv)\n");
               scanf("%d", &op);
 
     switch(op) {
@@ -169,6 +209,14 @@ int main()
               printf("Você está saindo, tecle qualquer tecla para sair agora!");
                getchar();
                op = -1;
+               break;
+               
+            case 7:
+            	comp = compara(no, no2);
+            	if(comp == 0) printf("\n iguais \n");
+            	else printf("\n diferentes \n");
+            	break;
+            
 
             default:
               printf("Opcao invalida!\n");
