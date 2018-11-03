@@ -147,6 +147,13 @@ int main() {
 				
 				 printf("\n");
             	 break;
+            	 
+            case 17:
+                printf("Voce esta saindo, tecle qualquer tecla para sair agora!!!\n\n");
+                //getchar();  Use this for Linux
+                system("pause");
+                op = -1;
+                break;
             
 
             default:
