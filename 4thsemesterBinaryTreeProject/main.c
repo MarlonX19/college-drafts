@@ -2,11 +2,20 @@
 #include <stdlib.h>
 #include "arvore.c"
 
+/*
+*  @bitbucket 
+*  
+* Matheus Pegoraro @ https://bitbucket.org/MatheusPegoraro/
+* Marlon Englemam @ https://bitbucket.org/Marlonx19/
+* 
+*
+*/
 
 int main() {
 	
-	int op =0;
-	int prof =0;
+	int op = 0;
+	int prof = 0;
+	int no_temp = 0;
 	
 	NO* arvore;
 	NO* aux;
@@ -36,6 +45,7 @@ int main() {
        while(op > -1 && op < 18) {
            printf("\n\nSelecione a opcao que deseja!\n");
 
+			printf("<0> Insira um no na árvore\n");
             printf("<1> Mostrar no raiz\n");
             printf("<2> Mostrar nos ramos\n");
             printf("<3> Mostrar nos folhas\n");
@@ -56,6 +66,14 @@ int main() {
               scanf("%d", &op);
 
     switch(op) {
+    	
+    		case 0:
+    			// Insere no que o usuario desejar
+    			printf("Digite um numero interio para o no que deseja inserir: ");
+    			scanf("%d", &no_temp);
+    			inserir(&arvore, no_temp);
+    			break;
+    			
             case 1:
                 // Mostrar raiz
 				printf("\nNo raiz: %d", acharNoRaiz(arvore)); 
@@ -90,36 +108,65 @@ int main() {
                 break;
                
             case 7:
+            	printf("Digite o no para mostrar os ancestrais do mesmo: ");
+            	scanf("%d", &no_temp);
+            	if(!noExiste(arvore, no_temp)) {
+            		break;
+				}
                 // Mostrar ancestrais de um no
-				printf("\nAncestrais do no %d:  ", 14);
-				ancestraisDoNo(arvore, 14);
+				printf("\nAncestrais do no %d:  ", no_temp);
+				ancestraisDoNo(arvore, no_temp);
             	break;
             
             case 8:
+            	printf("Digite o no para mostrar os descendentes do mesmo: ");
+            	scanf("%d", &no_temp);
+            	if(!noExiste(arvore, no_temp)) {
+            		break;
+				}
                 // Mostrar descendentes de um no
-				printf("\nDescendentes do no %d:  ", 40);
-				descendentesDoNo(pesquisar(arvore, 40), 40);
+				printf("\nDescendentes do no %d:  ", no_temp);
+				descendentesDoNo(pesquisar(arvore, no_temp), no_temp);
             	break;
             	
             case 9:
+            	printf("Digite o no para mostrar o seu respectivo grau: ");
+            	scanf("%d", &no_temp);
+            	if(!noExiste(arvore, no_temp)) {
+            		break;
+				}
                 // Mostrar descendentes de um no
-				printf("\nDescendentes do no %d:  ", 40);
-				descendentesDoNo(pesquisar(arvore, 40), 40);
-            	break;
+				printf("\nGrau do no: %d", grauArvore(pesquisar(arvore, no_temp)));
+                break;
             
             case 10:
+            	printf("Digite o no para mostrar sua respectiva altura: ");
+            	scanf("%d", &no_temp);
+            	if(!noExiste(arvore, no_temp)) {
+            		break;
+				}
                	// Mostrar altura do no
-				printf("\nAltura do no %d: %d", 40, alturaDoNo(pesquisar(arvore, 40)));
+				printf("\nAltura do no %d: %d", no_temp, alturaDoNo(pesquisar(arvore, no_temp)));
             	break;
             
              case 11:
+             	printf("Digite o no para mostrar sua respectiva profundidade: ");
+            	scanf("%d", &no_temp);
+            	if(!noExiste(arvore, no_temp)) {
+            		break;
+				}
                 // Mostrar profundidade de um no
-				printf("\nProfundidade do no %d = %d", 40, profundidadeDoNo(arvore, 40));
+				printf("\nProfundidade do no %d = %d", no_temp, profundidadeDoNo(arvore, no_temp));
             	break;
             	
             case 12:
+            	printf("Digite o no para mostrar sua respectiva profundidade: ");
+            	scanf("%d", &no_temp);
+            	if(!noExiste(arvore, no_temp)) {
+            		break;
+				}
                 // Nivel do no
-				printf("\nNivel do no %d: %d", 10, nivelDoNo(arvore, 10));
+				printf("\nNivel do no %d: %d", no_temp, nivelDoNo(arvore, no_temp));
             	break;
             	
             case 13:
@@ -159,6 +206,10 @@ int main() {
             default:
               printf("Opcao invalida!\n");
         }
+        printf("\n\n");
+        system("pause");
+        system("cls");
+        
     }
 
 

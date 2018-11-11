@@ -45,6 +45,19 @@ NO* pesquisar (NO* tree, int valor) {
 
 
 /* ------------------------------------------------ */
+int noExiste (NO* tree, int valor) {
+
+	if(pesquisar (tree, valor) == NULL) {
+		printf("Noh nao existente na arvore!");
+		return 0;
+	}	    
+	
+	return 1;
+
+} /* fim de verificar existencia no */
+
+
+/* ------------------------------------------------ */
 void preOrdem (NO *tree) {
 
     if (!estaVazia(tree)) {

@@ -8,6 +8,7 @@ typedef struct _no {
 void inicializar (NO **tree);
 int estaVazia (NO *tree);
 NO* pesquisar (NO* tree, int valor);
+int noExiste (NO* tree, int valor);
 void preOrdem (NO *tree);
 void posOrdem (NO *tree);
 void emOrdem (NO *tree);
