@@ -4,11 +4,10 @@
 
 /*
 *  @bitbucket 
-*  
+*
 * Matheus Pegoraro @ https://bitbucket.org/MatheusPegoraro/
 * Marlon Englemam @ https://bitbucket.org/Marlonx19/
 * 
-*
 */
 
 int main() {
@@ -45,7 +44,7 @@ int main() {
        while(op > -1 && op < 18) {
            printf("\n\nSelecione a opcao que deseja!\n");
 
-			printf("<0> Insira um no na árvore\n");
+			printf("<0> Insira um no na arvore\n");
             printf("<1> Mostrar no raiz\n");
             printf("<2> Mostrar nos ramos\n");
             printf("<3> Mostrar nos folhas\n");
@@ -197,7 +196,7 @@ int main() {
             	 
             case 17:
                 printf("Voce esta saindo, tecle qualquer tecla para sair agora!!!\n\n");
-                //getchar();  Use this for Linux
+                //getchar();  Use this for Linux, instead of the 
                 system("pause");
                 op = -1;
                 break;
