@@ -1,6 +1,7 @@
 #include "Funcoes_grafo.c"
 #include "lista.c"
 #include <stdio.h>
+#include <unistd.h> 
 
 int main (){
 	
@@ -46,9 +47,10 @@ direcionado, valorado, regular, conexo */
     			break;
     			
     		case 5:
-    			printf("Voce está saindo, tecle qualquer tecla pra confirmar!");
-    			system("pause");
+    			printf("Voce esta saindo!");
+    			sleep(3);
     			op = -1;
+    			break;
     			
     		default:
     			printf("Opcao invalida!");

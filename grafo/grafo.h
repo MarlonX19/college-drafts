@@ -5,7 +5,6 @@
 #define N 7
 
 void buscaEmLargura (int g[N][N], int x);
-
 void buscaEmProfundidade (int g[N][N], int x);
 void buscaP (int g[N][N], int x, int visitados[N]);
 
