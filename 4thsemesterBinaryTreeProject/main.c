@@ -68,7 +68,7 @@ int main() {
     	
     		case 0:
     			// Insere no que o usuario desejar
-    			printf("Digite um numero interio para o no que deseja inserir: ");
+    			printf("Digite um numero inteiro para o no que deseja inserir: ");
     			scanf("%d", &no_temp);
     			inserir(&arvore, no_temp);
     			break;
